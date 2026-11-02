@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { AuthRequest } from '../middleware/authMiddleware';
 import prisma from '../utils/prisma';
-import { uploadImage } from '../utils/cloudinary';
+import { uploadImage } from '../utils/s3';
 import { emailQueue } from '../queues/email.queue';
 import { calculateWholesalePrice } from '../utils/pricingUtils';
 import { TemplateService } from '../services/template.service';
