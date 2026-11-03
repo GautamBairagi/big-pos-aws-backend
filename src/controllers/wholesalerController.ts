@@ -701,7 +701,8 @@ export const updateProduct = async (req: AuthRequest, res: Response) => {
       const duplicateBarcode = await prisma.product.findFirst({
         where: {
           barcode: barcode.trim(),
-          id: { not: Number(id) }
+          id: { not: Number(id) },
+          wholesalerId: wholesalerProfile.id
         }
       });
       if (duplicateBarcode) {
