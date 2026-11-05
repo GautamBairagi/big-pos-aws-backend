@@ -696,8 +696,8 @@ export const updateProduct = async (req: AuthRequest, res: Response) => {
       console.log('✅ New image uploaded:', imageUrl);
     }
 
-    // Validate barcode uniqueness
-    if (barcode) {
+    // Validate barcode uniqueness only if the barcode is changed
+    if (barcode && barcode.trim() !== currentProduct.barcode?.trim()) {
       const duplicateBarcode = await prisma.product.findFirst({
         where: {
           barcode: barcode.trim(),
