@@ -271,7 +271,7 @@ export const checkCardBalance = async (req: AuthRequest, res: Response) => {
         }
 
         if (pin && card.pin !== pin) {
-            return res.status(401).json({ success: false, error: 'Invalid Card PIN' });
+            return res.status(400).json({ success: false, error: 'Invalid Card PIN' });
         }
 
         if (!card.consumerId) {
